@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -11,20 +10,32 @@
 
 <body>
   <div id="stuff">
-  <h1 id="header">Product Voting</h1>
-  
+    <h1 id="header">Product Voting</h1>
+
     <section id="img-container">
       <img id="img-one" src="" alt="">
       <img id="img-two" src="" alt="">
       <img id="img-three" src="" alt="">
     </section>
-    <div id="show-results-btn">
-     <button class="btn">View results</button>
-    <ul id="results-container"></ul></div>
-    <section id="words" >Hello there and welcome to the Odd Ducks INC. You are here to take part in a survey to help determine the future products of our company. On the page in front of you, you will see 3 seperate images being displayed. These 3 images are different potential products that we are considering producing. Your job is to click on the product that you like the most. Each time you click on a image all 3 images will refresh and display different images. Repeat this proccess, there will be a total of 25 round for voting. You may notice that you will see some of the same products multiple times throughout this survey. you can continue to click on the produc if it is still your favorite of the three. At the end of the survey you may click on the "View Results" button to view the results of your survey. This survey will help us decide which product will be overall favored by our consumer demand. Thank you for electing to take part in this survey and please have a wonderful time here and a wonderful day.</section>
-  
-  <footer id="foot">Elias Staehle &copy;</footer>
-</div>
+
+    <div>
+      <canvas id="myChart" style="height: 600px; width: 80%" ></canvas>
+    </div>
+
+    <section id="words">Hello there and welcome to the Odd Ducks INC. You are here to take part in a survey to help
+      determine the future products of our company. On the page in front of you, you will see 3 seperate images being
+      displayed. These 3 images are different potential products that we are considering producing. Your job is to click
+      on the product that you like the most. Each time you click on a image all 3 images will refresh and display
+      different images. Repeat this proccess, there will be a total of 25 round for voting. You may notice that you will
+      see some of the same products multiple times throughout this survey. you can continue to click on the product if it
+      is still your favorite of the three. 
+      the results of your survey. This survey will help us decide which product will be overall favored by our consumer
+      demand. Thank you for electing to take part in this survey and please have a wonderful time here and a wonderful
+      day.</section>
+
+    <footer id="foot">Elias Staehle &copy;</footer>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.0/dist/chart.min.js"></script>
   <script src="JS/index.js"></script>
 </body>
 
