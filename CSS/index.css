@@ -7,25 +7,19 @@ body{
   margin: auto;
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  /* 1fr 1fr 1fr */
   grid-auto-rows: minmax(200px, auto);
-  /* row-gap: 20px;
-  column-gap: 20px; */
-  /* gap: 20px */
-
   grid-template-areas:
     "header header header header"
-    "sidebar  conten  conten  conten"
-    "sidebar  article article article"
-    "sidebar  article article article"
-    "sidebar  article article article"
-    "sidebar  article article article"
-    "sidebar  article article article"
+    "article  conten  conten  conten"
+    "article  chart chart chart"
+    "article  chart chart chart"
+    "article  chart chart chart"
+    "article  chart chart chart"
     "footer footer footer footer"
 
 }
 img{
-  width: 20vw;
+  width: 33%;
   height: 20vw;
 }
 #header{
@@ -36,22 +30,15 @@ img{
   font-size: 7vw;
   border: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-  border-image-slice: 1;
-  width: 100%;
-  
-  
-  
+  border-image-slice: 1; 
 }
-#show-results-btn{
-  grid-area: sidebar;
-  font-size: 2vw;
+#words{
+  grid-area: article;
   background-color: none;
+  font-size: 2vw;
   border: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
-  width: 96.4%;
-  padding: 5px;
- 
 }
 #img-container{
 grid-area: conten;
@@ -59,17 +46,7 @@ background-color: none;
 border: 5px solid transparent;
 border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
 border-image-slice: 1;
-width: 100%;
 padding: 5px;
-}
-#words{
-  grid-area: article;
-  background-color: none;
-  font-size: 3vw;
-  border: 5px solid transparent;
-  border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
-  border-image-slice: 1;
-  width: 100%;
 }
 #foot{
   font-size: 7vw;
@@ -78,7 +55,6 @@ padding: 5px;
   border: 5px solid transparent;
   border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
   border-image-slice: 1;
-  width: 100%;
 }
 .nameOfImg{
   color: blue;
@@ -88,4 +64,7 @@ padding: 5px;
 }
 .clicks{
   color: aqua;
+}
+section + div{
+  grid-area: chart;
 }
