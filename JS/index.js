@@ -158,3 +158,4 @@ new Product('wine-glass');
 renderImgs();
 imgContainer.addEventListener('click', handleClick);
 
+
