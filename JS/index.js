@@ -70,6 +70,9 @@ function handleClick(event) {
   if (votesLeft === 0) {
     imgContainer.removeEventListener('click', handleClick);
     renderChart();
+    let strinifigedProd = JSON.stringify(prodArray);
+    localStorage.setItem('myProd', strinifigedProd);
+
   } else {
     renderImgs();
   }
@@ -134,25 +137,43 @@ function renderChart() {
   // eslint-disable-next-line no-unused-vars, no-undef
   const myChart = new Chart(canvasChart, config);
 }
-new Product('sweep', 'png');
-new Product('bag');
-new Product('banana');
-new Product('bathroom');
-new Product('boots');
-new Product('breakfast');
-new Product('bubblegum');
-new Product('chair');
-new Product('cthulhu');
-new Product('dog-duck');
-new Product('dragon');
-new Product('pen');
-new Product('pet-sweep');
-new Product('scissors');
-new Product('shark');
-new Product('tauntaun');
-new Product('unicorn');
-new Product('water-can');
-new Product('wine-glass');
+let retreivedProd = localStorage.getItem('myProd');
+console.log(retreivedProd);
+let parsedProd = JSON.parse(retreivedProd);
+
+if (retreivedProd) {
+  for (let i = 0; i < parsedProd.length; i++) {
+    if (parsedProd[i].name === 'sweep') {
+      let reconstructedProdSweep = new Product(parsedProd[i].name, 'png');
+      reconstructedProdSweep.views = parsedProd[i].views;
+      reconstructedProdSweep.clicks = parsedProd[i].clicks;
+    } else {
+      let reconstructedProd = new Product(parsedProd[i].name);
+      reconstructedProd.views = parsedProd[i].views;
+      reconstructedProd.clicks = parsedProd[i].clicks;
+    }
+  }
+} else {
+  new Product('sweep', 'png');
+  new Product('bag');
+  new Product('banana');
+  new Product('bathroom');
+  new Product('boots');
+  new Product('breakfast');
+  new Product('bubblegum');
+  new Product('chair');
+  new Product('cthulhu');
+  new Product('dog-duck');
+  new Product('dragon');
+  new Product('pen');
+  new Product('pet-sweep');
+  new Product('scissors');
+  new Product('shark');
+  new Product('tauntaun');
+  new Product('unicorn');
+  new Product('water-can');
+  new Product('wine-glass');
+}
 
 
 renderImgs();
