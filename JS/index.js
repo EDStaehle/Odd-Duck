@@ -1,5 +1,5 @@
 'use strict';
-
+// global variables
 let votesLeft = 25;
 let prodArray = [];
 
@@ -11,7 +11,7 @@ let imgThree = document.getElementById('img-three');
 
 
 
-
+// constructor
 
 function Product(name, fileExtension = 'jpg') {
   this.name = name;
@@ -21,11 +21,11 @@ function Product(name, fileExtension = 'jpg') {
 
   prodArray.push(this);
 }
-
+// random generators
 function randomIndex() {
   return Math.floor(Math.random() * prodArray.length);
 }
-
+// generating imgs based on random numbers
 let ranNum = [];
 function renderImgs() {
   while (ranNum.length < 6) {
@@ -50,7 +50,7 @@ function renderImgs() {
   imgTwo.alt = prodArray[imgTwoI].name;
   imgThree.alt = prodArray[imgThreeI].name;
 }
-
+// handles votes on img
 function handleClick(event) {
   console.dir(event.target);
   let imgClicked = event.target.alt;
@@ -70,6 +70,7 @@ function handleClick(event) {
   if (votesLeft === 0) {
     imgContainer.removeEventListener('click', handleClick);
     renderChart();
+    // begin creating local storage
     let strinifigedProd = JSON.stringify(prodArray);
     localStorage.setItem('myProd', strinifigedProd);
 
@@ -77,6 +78,7 @@ function handleClick(event) {
     renderImgs();
   }
 }
+// creates the chart for results
 let canvasChart = document.getElementById('myChart').getContext('2d');
 const gradientView = canvasChart.createLinearGradient(0, 0, 0, 400);
 gradientView.addColorStop(0.3, 'rgba(131,58,180,.7)');
@@ -134,6 +136,7 @@ function renderChart() {
       }
     },
   };
+  // local storage being added to chart
   // eslint-disable-next-line no-unused-vars, no-undef
   const myChart = new Chart(canvasChart, config);
 }
@@ -154,6 +157,7 @@ if (retreivedProd) {
     }
   }
 } else {
+  // new products to be added to array
   new Product('sweep', 'png');
   new Product('bag');
   new Product('banana');
